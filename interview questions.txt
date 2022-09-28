@@ -1,0 +1,45 @@
+rand addr;
+
+constraint C1 {addr > 20; addr < 100;}
+
+reg clk;
+
+initial begin
+  forever #5 clk = ~clk;
+end
+
+class A;
+
+int x, y, z;
+
+function void print();
+  $display("%d, %d, %d", x, y, z);
+
+endclass
+
+module tb;
+
+A B;
+
+B = new();
+
+B.x = 10;
+
+B.print();
+
+endmodule
+
+
+10 digit random integer number;
+
+rand(1000000000, 9999999999)
+
+
+covergroup;
+  coverpoint addr: {bins[31:0] = {}}
+endcovergroup
+
+cg.inst
+cg.sample
+
+FSM, toggle, expression, line, block

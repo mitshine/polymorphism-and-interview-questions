@@ -1,0 +1,231 @@
+class base;
+
+int a = 10;
+int b = 20;
+
+function display () {
+    $display("Printing values from base class = %d, %d", a, b);
+}
+
+endclass
+
+class child_1 extends base;
+
+function display () {
+    $display("Printing values from child class = %d, %d", a, b);
+}
+
+endclass
+
+module tb;
+
+initial begin
+
+A = new(base);
+B = new();
+
+base A;
+child_1 B;
+
+A.display();
+B.display();
+
+end
+
+endmodule
+
+Output:
+Printing values from base class = 10, 20
+Printing values from child class = fatal error, A.a, A.b is needed not a or b only.
+
+
+rand [31:0] addr;
+constraint C1 {addr inside[0:4k]}
+
+
+a > offset; a < 4k;
+
+
+size, length, wstrb
+
+
+3 liter, 5 liter, measure 4 liter
+
+2 bottles empty
+
+
+Our Solution:
+Fill the 5-liter bowl. Then fill the 3-liter bowl from the 5-liter bowl. You will now have 2 liters left in the 5 liter bowl.
+
+Empty the 3-liter bowl, and then transfer the 2 liters from the 5-liter bowl into it.
+
+Now fill the 5-liter bowl again, then pour water carefully from the 5-liter bowl into the 3-liter bowl until it is full - exactly one more liter.
+
+The 5-liter bowl now has exactly 4 liters.
+
+
+ANSWER:
+
+1. Fill 3 liter jug from tap 
+
+2. empty it into 5 liter jug 
+
+3. again fill 3 liter jug from tap 
+
+4. pour 2 liter (after that 5 liter jug will be full)  from 3 liter jug into 5 liter leaving 1 liter in 3 liter jug.
+
+5. pour away the water of 5 liter jug.
+
+6. empty 1 liter water from 3 liter jug into 5 liter jug.
+
+7 fill 3 liter jug from tap and empty it into 5 liter jug .
+
+8. 5 liter jug has 4 liters of water 
+
+
+
+
+
+
+// Code your testbench here
+// or browse Examples
+class base;
+
+int a = 10;
+int b = 20;
+
+virtual function display;
+    $display("Printing values from base class = %d, %d", a, b);
+endfunction
+
+endclass
+
+class child_1 extends base;
+
+function display;
+  $display("Printing values from child class = %d, %d", a, b);
+endfunction
+
+endclass
+
+module tb;
+
+initial begin
+
+base A;
+child_1 B;
+A D;
+B D;
+  
+A = new();
+B = new();
+D = new();
+
+A.display();
+B.display();
+D.display();
+  
+end
+
+endmodule
+
+// Output:
+// Printing values from base class = 10, 20
+// Printing values from child class = fatal error, A.a, A.b is needed not a or b only.
+
+
+
+
+// Code your testbench here
+// or browse Examples
+class base;
+
+int a = 10;
+int b = 20;
+
+virtual function display;
+    $display("Printing values from base class = %d, %d", a, b);
+endfunction
+
+endclass
+
+class child_1 extends base;
+
+function display;
+  $display("Printing values from child class = %d, %d", a, b);
+endfunction
+
+endclass
+
+module tb;
+
+initial begin
+
+base A;
+child_1 B;
+child_1 D;
+A D;
+  
+A = new();
+B = new();
+D = new();
+
+A.display();
+B.display();
+D.display();
+  
+end
+
+endmodule
+
+// Output:
+// Printing values from base class = 10, 20
+// Printing values from child class = fatal error, A.a, A.b is needed not a or b only.
+
+
+
+
+class base;
+
+int a = 10;
+int b = 20;
+
+virtual function display;
+    $display("Printing values from base class = %d, %d", a, b);
+endfunction
+
+endclass
+
+class child_1 extends base;
+
+function display;
+  $display("Printing values from child class = %d, %d", a, b);
+endfunction
+
+endclass
+
+module tb;
+
+initial begin
+
+base A;
+child_1 B;
+child_1 D;
+base D;
+  
+A = new();
+B = new();
+D = new();
+
+A.display();
+B.display();
+D.display();
+  
+end
+
+endmodule
+
+// Output:
+// Printing values from base class = 10, 20
+
+

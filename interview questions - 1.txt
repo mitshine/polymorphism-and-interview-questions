@@ -1,0 +1,119 @@
+uvm_analysis_port (#pci_transaction) ap;
+
+task run_phase(uvm_phase phase)
+pci_transaction packet;
+ap.write(packet);
+endtask
+
+uvm_analysis_port drv2sb;
+(in driver of pcie)
+then drv2sb.expected_value;
+
+In axi master, monitor, uvm_analysis_port axi_ap;
+
+task write();
+packet axi_transaction;
+queue = packet.actual_value;
+endtask
+
+through monitor of pcie via analysis port to scoreboard.
+
+uvm_dec_implementation (_FROM_MONITOR);
+
+queue[$];
+
+task write_FROM_MONITOR(packet);
+begin
+queue = packet.signal1;
+if(queue.pop_front == expected_value)
+  $display(Test Passed);
+else
+  $display(Test Failed);
+end
+endtask
+
+
+
+
+
+
+task s_out;
+
+forever begin
+if(s_in)
+t1 = $realtime;
+if($fell(s_in))
+t2 = $realtime;
+
+if(t2-t1 > 100)
+  s_out <= 1;
+end
+else
+  s_out <= 0;
+
+#1000 $finish;
+
+endtask
+
+
+rand [31:0] addr;
+constraint c1 {addr inside[0:16'd2^16];}
+
+arr = new();
+
+arr = [];
+
+constraint c1 {
+  foreach i in arr;
+  arr[i] <= 100;
+}
+
+rand int arr;
+int arr_sum = 0;
+
+constraint c1 {
+  foreach i in arr;
+    arr_sum += arr[i] + arr_sum;
+  arr_sum < 100;
+}
+
+
+for(int i = 0; i < 100; i++)
+    for(int j = 0; j < 100; j++)
+       if(i != j)
+          arr[i] != arr[j];
+
+
+
+constraint {soft addr < 100;}
+
+transaction tx;
+assert(tx.randomize_with( addr > 50));
+
+
+std::randomize
+
+
+a = 10;
+b = a + 20;
+constraint c1 {solve a before b;}
+
+virtual sequence and virtual sequencer
+
+
+axi sequencer and apb sequencer
+
+axi axi1;
+apb apb1;
+
+virtual sequence or virtual sequencer is used to coordinate the sequencers of axi and apb from test class with phase.raise_objection and phase.drop_objection with axi1.start(vir_seq);
+apb1.start(vir_seq);
+
+test
+testcase
+build
+connect
+run
+virtual 
+
+std::randomize()
